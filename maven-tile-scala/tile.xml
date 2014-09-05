@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+	<version>3.1.6</version>
+	<executions>
+	  <execution>
+	    <goals>
+	      <goal>compile</goal>
+	      <goal>testCompile</goal>
+	    </goals>
+	    <configuration>
+              <scalaVersion>${scala.version}</scalaVersion>
+	      <failOnMultipleScalaVersions>${failOnMultipleScalaVersions}</failOnMultipleScalaVersions>
+	      <args>
+		<arg>-unchecked</arg>
+		<arg>-deprecation</arg>
+                <arg>-feature</arg>
+                <arg>-language:postfixOps</arg>
+                <arg>-language:reflectiveCalls</arg>
+                <arg>-language:implicitConversions</arg>
+                <arg>-g:vars</arg>
+		<arg>-dependencyfile</arg>
+		<arg>${project.build.directory}/.scala_dependencies</arg>
+	      </args>
+	    </configuration>
+	  </execution>
+	</executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
